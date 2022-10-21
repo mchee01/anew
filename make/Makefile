@@ -5,4 +5,4 @@ test1.o : test2.c a.h b.h
 test3.o : test3.c b.h c.h
 	gcc -c test3.c
 clean :
-	rm -rf test test? .o
+	rm -rf test test?.o
