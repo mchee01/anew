@@ -3,7 +3,7 @@
 int main() {
   int number;
   printf("Input num :");
-  scanf("%d \n",&number);
+  scanf("%d",&number);
   if(checked(number)==1){
     printf("%d is odd number~!!",number);
   }else if(checked(number)==0){
