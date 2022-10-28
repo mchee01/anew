@@ -1,3 +1,4 @@
+#-- create database testdb;
 show databases;
 use testdb;
 show tables;
