@@ -1,0 +1,10 @@
+use test
+db.emp.count()
+db.emp.find({},{_id:0,ename:1,sal:1})
+
+db.emp.update{
+    {sal:{$gte:2500}},
+    {$inc:{sal:1500}},
+    {multi:true}
+}
+db.emp.find({dept:40},{_id:0,ename:1,sal:1})
