@@ -1,4 +1,6 @@
 # anew
 
+python/**/myvenv
+node/**/node_modules
 mongodb/**/*.json
 mongodb/backup
