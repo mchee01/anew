@@ -1,0 +1,71 @@
+{
+  "name": "hello",
+  "version": "0.3.2",
+  "description": "Write less. Ship more.",
+  "main": "lib/index.js",
+  "repository": "https://github.com/hello-js/hello",
+  "author": "Matt Venables <mattvenables@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "standard && NODE_ENV=test nyc mocha test/**/*.spec.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "bin": "./cli/index.js",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "engines": {
+    "node": ">= 7.0.0"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "fs-extra": "^4.0.1",
+    "glob-promise": "^3.1.0",
+    "hello-config": "^1.0.1",
+    "hello-index": "^1.0.1",
+    "inflection": "^1.12.0",
+    "kcors": "^2.2.1",
+    "knex": "^0.13.0",
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-compress": "^2.0.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-ejs": "^4.1.0",
+    "koa-etag": "^3.0.0",
+    "koa-favicon": "^2.0.0",
+    "koa-helmet": "^3.2.0",
+    "koa-i18n": "^2.1.0",
+    "koa-json": "^2.0.2",
+    "koa-locale": "^1.3.0",
+    "koa-morgan": "^1.0.1",
+    "koa-response-time": "^2.0.0",
+    "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1",
+    "lodash": "^4.17.4",
+    "lodash.defaultsdeep": "^4.6.0",
+    "lodash.merge": "^4.6.0",
+    "meow": "^3.7.0",
+    "objection": "^0.8.6",
+    "objection-visibility": "^0.1.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "coveralls": "^2.13.1",
+    "mocha": "^3.5.0",
+    "mock-knex": "^0.3.9",
+    "nyc": "^11.1.0",
+    "sinon": "^3.1.0",
+    "sqlite3": "^3.1.9",
+    "standard": "^10.0.3",
+    "supertest": "^3.0.0"
+  }
+}

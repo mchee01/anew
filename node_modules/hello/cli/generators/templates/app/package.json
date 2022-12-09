@@ -1,0 +1,20 @@
+{
+  "name": "hello-template",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "migrate": "hello migrate",
+    "setup": "./bin/setup",
+    "start": "node index.js",
+    "test": "echo 'No tests'"
+  },
+  "dependencies": {
+    "hello": "^0.3.0",
+    "pg": "^7.1.0"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
+}
