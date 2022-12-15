@@ -1,12 +1,10 @@
-build : 
+build :
 	docker build -t greet .
-run : 
+run :
 	docker run -it --rm greet asa
 ps : 
 	docker ps -a
-img : 
+img :
 	docker images
-rm :
-	docker rm $$(docker ps -aq)
-rmi : 
+rmi :
 	docker rmi $$(docker images -q)

@@ -1,7 +1,7 @@
-# Step1 :Base images
+# Step1 : base images
 FROM ubuntu
 
-# Step2 :install program
+# Step2 : install program
 RUN apt-get update && apt-get install -y -q nginx && apt-get install -y vim
 
 # Step3 : file copy

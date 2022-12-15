@@ -1,20 +1,15 @@
 build:
-	docker build -t node_signal_test_app .
+	docker build -t health_test .
 run:
-	docker run -it -p 3000:3000 --name node_signal_test_app node_signal_test_app
-history:
-	docker history node_signal_test_app
-start:
-	docker start node_signal_test_app
-stop:
-	docker stop node_signal_test_app
-kell:
-	docker kill --signal="SIGTERM" node_signal_test_app
+	docker run -it -d --name health_test health_test
+inspect:
+	docker inspect health_test
 ps:
 	docker ps -a
 img:
 	docker images
-rm:
+rm :
 	docker rm -f $$(docker ps -aq)
 rmi:
 	docker rmi $$(docker images -q)
+

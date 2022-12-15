@@ -1,10 +1,13 @@
 build:
-	docker build -t cmd1 .
+	docker build -t cmd2 .
 run:
-	docker run -it -d -p 8000:80 cmd1
+	docker run -it -d -p 8000:80 cmd2
 ps:
 	docker ps -a
-rm:
-	docker rm $$(docker ps -aq)
+img:
+	docker images
+rm :
+	docker rm -f $$(docker ps -aq)
 rmi:
 	docker rmi $$(docker images -q)
+

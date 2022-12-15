@@ -6,15 +6,13 @@ exec:
 	docker exec -it nodejs /bin/bash
 start:
 	docker start nodejs
-attach:
-	docker attach nodejs
 logs:
 	docker logs nodejs
 ps:
 	docker ps -a
 img:
 	docker images
-rm:
+rm :
 	docker rm -f $$(docker ps -aq)
 rmi:
 	docker rmi $$(docker images -q)

@@ -1,24 +1,29 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Moongoose Module</title>
-</head>    
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 <body>
-    <h1>Mongoose Test Example</h1>
-    <form method='post' action=/insert name="mongoform">
-        <input type='button' value="mydb User list" onclick='location.href="/list"'><p>
-        user <input type='text' size='10' name='userid'>
-        <input type='button' value="get" onclick='location.href="/get?input="+document.mongoform.userid.value'><p>
-        name <input type='text' size='10' name='name'><p>
-        city <input type='text' size='10' name='city'><p>
-        age <input type='text' size='10' name='age'><p>
-        sex <input type='radio' name='sex' value='male'>
-            <input type='radio' name='sex' value='female'><p>
-        <input type='submit' value="insert" onclick='this.form.action="/insert"'>
-        <input type='submit' value="update" onclick='this.form.action="/update"'>
-        <input type='submit' value="delete" onclick='this.form.action="/delete"'>
-    </form>
+<h1> Mongoose Test Example</h1>
+<form method='post' action='/insert' name='mongoform' >
+      <input type='button' value='mydb User list'  onclick='location.href="/list"' >
+      <p>
+      userid <input type='text' size='10' name='userid'>
+      <input type='button' value='get' onclick='location.href="/get?input="+document.mongoform.userid.value'>
+      <p>
+      name <input type='text' size='10' name='name'>
+      <p>    
+      city <input type='text' size='10' name='city'>
+      <p>
+      Age <input type='text' size='10' name='age'>
+      <p>
+      sex <input type='radio' name='sex' value='male'>male
+      <input type='radio' name='sex' value='female'>female
+      <p>
+      <input type='submit' value='insert' onclick='this.form.action="/insert"' >
+      <input type='submit' value='update' onclick='this.form.action="/update"' >
+      <input type='submit' value='delete' onclick='this.form.action="/delete"' >
+</form>
 </body>
 </html>

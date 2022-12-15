@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 //mongoose configuration
 const mongoose = require("mongoose")
-mongoose.connect('mongodb://43.201.125.57:27017/mydb')
+mongoose.connect('mongodb://43.201.94.25:27017/mydb')
 
 // routes setup
 var main = require('./routes/main.js');

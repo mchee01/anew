@@ -1,111 +1,61 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const CircularJSON = require('circular-json')
-const request = require('request')
-const mysql = require("sync-mysql")
-const env =require("dotenv").config({ path:"../../.env"});
+const mysql = require("mysql2/promise");
+const env =require("dotenv").config({ path:"../../.env" });
 
-var connection = new mysql({
-		host : process.env.host,
-		user : process.env.user,
-		password : process.env.password,
-		database : process.env.database
-});
+const db = async () => {
+  try {
+    // db connection
+    let connection = await mysql.createConnection({
+      host : process.env.host,
+  		user : process.env.user,
+  		password : process.env.password,
+  		database : process.env.database
+    });
 
-const app = express()
+    // Select all rows from st_info table
+    let [rows, fields] = await connection.query("SELECT * FROM st_info");
+    console.log(rows);
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended : false }))
-app.use(express.json())
-app.use(express.urlencoded({ extended : true }))
+    // insert data
+    let data = {
+      ST_ID : "20204",
+      NAME : "Moon",
+      DEPT : "Computer"
+    };
 
-app.get("/Hello", (req, res)=> {
-  res.send("Hello World")
-})
+    // insert data into st_info table
+    let [results] = await connection.query(
+      "INSERT INTO st_info SET ?",
+      data
+    );
+    // inserted data's id
+    let insertId = data.ST_ID;
 
-// Select all rows from st_info table
-app.get("/select", (req, res) => {
-  const result = connection.query("SELECT * FROM st_info");
-  console.log(result);
-  res.writeHead(200);
-  var template = `
-  <!doctype html>
-  <html>
-  <head>
-    <title>Result</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-   <table border="1" margin:auto; text-align:center;>
-     <tr>
-       <th>ST_ID</th>
-       <th>NAME</th>
-       <th>DEPT</th>
-     </tr>
-   `;
-   for(var i=0; i<result.length; i++) {
-    template += `
-     <tr>
-       <th>${result[i]['ST_ID']}</th>
-       <th>${result[i]['NAME']}</th>
-       <th>${result[i]['DEPT']}</th>
-     </tr>
-    `
-   }
-   template += `
-     </table>
-  </body>
-  </html>
- `;
-  res.end(template);
-})
+    // Select all rows from st_info table
+    [rows, fields] = await connection.query("SELECT * FROM st_info");
+    console.log(rows);
 
+    // update row
+    [results] = await connection.query("UPDATE st_info SET DEPT=? WHERE ST_ID=?", [
+      "Game",
+      insertId,
+    ]);
 
-// insert data into st_info table
-app.get("/insert", (req, res) => {
-  const { ST_ID, NAME, DEPT } = req.query
-  const result = connection.query(
-      "INSERT INTO st_info values (?, ?, ?)", [
-          ST_ID,
-          NAME,
-          DEPT
-  ]);
+    // Select all rows from st_info table
+    [rows, fields] = await connection.query("SELECT * FROM st_info");
+    console.log(rows);
 
-  urls = "http://43.201.125.57:3000/select/"
-  request(urls, { json:true }, (err, result, body) => {
-    if (err) { return console.log(err) }
-    res.send(CircularJSON.stringify(body))
-  })
-})
+    // delete row
+    [results] = await connection.query("DELETE FROM st_info WHERE ST_ID=?", [
+        insertId,
+    ]);
 
-// update row from st_info table
-app.get("/update", (req, res) => {
-  const { ST_ID, NAME, DEPT } = req.query
-  const result = connection.query("UPDATE st_info SET NAME=?, DEPT=? WHERE ST_ID=?", [
-      NAME,
-      DEPT,
-      ST_ID
-  ]);
+    // Select all rows from st_info table
+    [rows, fields] = await connection.query("SELECT * FROM st_info");
+    console.log(rows);
 
-  urls = "http://43.201.125.57:3000/select/"
-  request(urls, { json:true }, (err, result, body) => {
-    if (err) { return console.log(err) }
-    res.send(CircularJSON.stringify(body))
-  })
-})
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-// delete row from st_info table
-app.get("/delete", (req, res) => {
-  const ST_ID = req.query.ST_ID
-  result = connection.query("DELETE FROM st_info WHERE ST_ID=?", [
-      ST_ID
-  ]);
-
-  urls = "http://43.201.125.57:3000/select/"
-  request(urls, { json:true }, (err, result, body) => {
-    if (err) { return console.log(err) }
-    res.send(CircularJSON.stringify(body))
-  })
-})
-
-module.exports = app;
+db();

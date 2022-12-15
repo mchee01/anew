@@ -1,5 +1,5 @@
-var mysql = require('sync-mysql')
-const env =require("dotenv").config({ path:"../../.env"});
+var mysql = require("sync-mysql");
+const env =require("dotenv").config({ path:"../../.env" });
 
 var connection = new mysql({
 	host : process.env.host,
@@ -7,8 +7,8 @@ var connection = new mysql({
 	user : process.env.user,
 	password : process.env.password,
 	database : process.env.database
-})
+  })
 
-//SElect all rows from st_info table
-let result=connection.query("select * from st_info");
+// Select all rows from st_info table
+let result = connection.query("SELECT * FROM st_info");
 console.log(result);

@@ -1,12 +1,13 @@
 build:
 	docker build -t run-sample .
 history:
-	docker history run-sample
+	docker history run-sample 
 ps:
 	docker ps -a
 img:
 	docker images
-rm:
+rm :
 	docker rm -f $$(docker ps -aq)
 rmi:
 	docker rmi $$(docker images -q)
+

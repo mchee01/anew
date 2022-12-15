@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Restful API Example</title>
+</head>
+<body>
+<h1> Restful API Example</h1>
+------------------------------------------------------------------<br>
+<h4> GET APIs </h4>
+------------------------------------------------------------------<br>
+<form method='post' action='/api/users/userBody' name='userForm' target='targetURL'>
+  <input type='button' value="GET /Hello" onclick='document.targetURL.location.href="/Hello"'>
+  <p>
+  <input type='button' value="GET /api/users" onclick='document.targetURL.location.href="/api/users"'>
+  <p>
+  id <input type="text" size='10' name='id'>
+  <input type='button' value="GET /api/users/user?params" onclick='document.targetURL.location.href="/api/users/user?user_id="+document.userForm.id.value'>
+  &nbsp;
+  <input type='button' value="GET /api/users/path" onclick='document.targetURL.location.href="/api/users/"+document.userForm.id.value'>
+  <p>
+  name <input type="text" size='10' name='name'>
+  <input type='button' value="GET /api/users/user?userid & name" onclick='document.targetURL.location.href="/api/users/user?user_id="+document.userForm.id.value+"&name="+document.userForm.name.value'>
+  <br>
+------------------------------------------------------------------<br>
+  <h4> POST APIs </h4>
+------------------------------------------------------------------<br>
+  <button type="submit" name='userBody' formaction='/api/users/userBody'>POST => /api/users/userBody</button>
+  <p>
+  <button type="submit" name='userBody' formaction='/api/users/add'>POST => /api/users/add</button>
+  <br>
+</form>
+------------------------------------------------------------------<br>
+<iframe name=targetURL class="iframe-preview center" width="90%" height="500" style="border:none;" src="http://43.201.94.25:3000/Hello">
+</iframe>
+</body>
+</html>

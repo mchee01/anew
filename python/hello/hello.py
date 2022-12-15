@@ -1,5 +1,6 @@
 from bottle import route, run
 
+@route('/')
 @route('/<name>')
 def index(name="World"):
     return 'Hello %s' % name

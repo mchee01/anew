@@ -1,3 +1,2 @@
 use test
-
 db.primer.findOne()

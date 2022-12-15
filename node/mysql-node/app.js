@@ -6,7 +6,7 @@ const mysql = require("mysql")
 const db = require("../config/db_config.json")
 
 var corsOptions = {
-    origin : "http://43.201.125.57:3000"
+    origin : "http://43.201.94.25:3000"
 }
 
 app.use(cors(corsOptions))
@@ -40,5 +40,5 @@ app.get('/info', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`Server On : http://43.201.125.57:${PORT}/`)
+    console.log(`Server On : http://43.201.94.25:${PORT}/`)
 })

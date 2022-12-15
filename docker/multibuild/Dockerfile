@@ -8,6 +8,7 @@ RUN go get -d -v github.com/urfave/cli
 # Build modules
 COPY main.go .
 RUN GOOS=linux go build -a -o greet .
+
 ##-----------------------------------
 # 2. Prodcution Image
 FROM busybox

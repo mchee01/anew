@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const CircularJSON = require('circular-json')
 const request = require('request')
 const mysql = require("sync-mysql")
-const env =require("dotenv").config({ path:"../../.env"});
+const env =require("dotenv").config({ path:"../../.env" });
 
 var connection = new mysql({
 		host : process.env.host,
@@ -71,7 +71,7 @@ app.get("/insert", (req, res) => {
           DEPT
   ]);
 
-  urls = "http://43.201.125.57:3000/select/"
+  urls = "http://43.201.94.25:3000/select/"
   request(urls, { json:true }, (err, result, body) => {
     if (err) { return console.log(err) }
     res.send(CircularJSON.stringify(body))
@@ -87,7 +87,7 @@ app.get("/update", (req, res) => {
       ST_ID
   ]);
 
-  urls = "http://43.201.125.57:3000/select/"
+  urls = "http://43.201.94.25:3000/select/"
   request(urls, { json:true }, (err, result, body) => {
     if (err) { return console.log(err) }
     res.send(CircularJSON.stringify(body))
@@ -101,7 +101,7 @@ app.get("/delete", (req, res) => {
       ST_ID
   ]);
 
-  urls = "http://43.201.125.57:3000/select/"
+  urls = "http://43.201.94.25:3000/select/"
   request(urls, { json:true }, (err, result, body) => {
     if (err) { return console.log(err) }
     res.send(CircularJSON.stringify(body))

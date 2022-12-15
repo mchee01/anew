@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Corona Status </title>
+</head>
+<body>
+<h1>  Corona Status </h1>
+<form name='mongoform' >
+      <input type='button' value='Corona - API get data'  onclick='document.targetURL.location.href="/getdata"' >
+      <p>
+      <input type='button' value='Corona - Mongodb collection data'  onclick='document.targetURL.location.href="/list"' >
+      <p>            
+</form>
+<iframe name=targetURL class="iframe-preview center" width="500" height="500" style="border:none;" src="http://43.201.94.25:3000/list"></iframe>
+</body>
+</html>

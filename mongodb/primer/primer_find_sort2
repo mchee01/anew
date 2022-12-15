@@ -1,2 +1,2 @@
 use test
-db.primer.find({borugh:"Queens"}).sort({address:-1}).pretty()
+db.primer.find({borough:"Queens"}).sort({address:-1}).pretty()

@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo -n "Input Woman Age : "
-read womanAge
+read woman
 echo -n "Input Man Age : "
-read manAge
+read man
 
-if [ $womanAge -gt $manAge ]; then
+if [ $woman -gt $man ]; then
 	echo old Woman
-elif [ $manAge -gt $WomanAge ]; then
-	echo old Man
-else
+elif [ $woman -eq $man ]; then
 	echo same
+else
+	echo old man
 fi

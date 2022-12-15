@@ -1,6 +1,7 @@
 {
   "name": "mysql2",
   "version": "1.0.0",
+  "description": "",
   "main": "mysql.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,9 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "mysql2-promise": "^0.1.4"
   }
 }

@@ -1,6 +1,6 @@
 build:
 	docker build -t nodejs .
-run:
+run: 
 	docker run -p 8000:8000 -d --name nodejs nodejs
 exec:
 	docker exec -it nodejs /bin/bash
@@ -18,3 +18,4 @@ rm:
 	docker rm -f $$(docker ps -aq)
 rmi:
 	docker rmi $$(docker images -q)
+

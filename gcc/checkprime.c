@@ -1,11 +1,10 @@
-int checkprime(int n){
+int checkprime(int n) {
   int i;
-  for(i=2; i<=n;i++){
-    if(n%i==0){
+  for (i=2; i <= n; i++) {
+    if (n%i == 0)
       break;
-    }else{
+    else
       continue;
-    }
   }
   return i;
 }

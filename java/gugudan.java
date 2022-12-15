@@ -1,19 +1,23 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class gugudan{
-  public static void main(String[] args) {
-    System.out.print("구구단을 출력하는 프로그램입니다.\n 1~9까지 입력하여주세요. ->");
-    Scanner sc = new Scanner(System.in);
-    int gugu = sc.nextInt();
-    if(gugu==0){
-      System.out.println("2~9까지 입력하여 주세요.");
-      //System.exit(1);
-    } else if(gugu>1&&gugu<10){
-      for(int i = 1;i<=9; i++){
-        System.out.println(gugu+"x"+i+"="+(gugu*i));
-      }
-    }else{
-      System.out.println("1 미만은 입력하실수 없습니다.");
-    }
-  }
+public class gugudan {
+	public static void main (String[] args) {
+		Scanner s = new Scanner(System.in);
+		do {  
+			System.out.print("Insert number(0:Exit) : ");
+			int i = s.nextInt();
+
+			if (i == 0) {
+				System.exit(1);
+			} else if (i>1 && i<10) {
+				for(int j=1; j<10; j++) {
+					System.out.println( i +" * "+ j + " = " + i*j );
+
+				}
+			} else {
+				System.out.println("Insert Number 2~9. Retype again~!!");
+			}
+		} while(true);
+	}
 }
+

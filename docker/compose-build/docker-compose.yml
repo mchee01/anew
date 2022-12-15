@@ -1,8 +1,5 @@
-version: '3.3'
 services:
- redis:
- image: redis
-webserver:
- image: nginx
- ports:
- - 80:80/tcp
+ webserver:
+  build: 
+    context: data
+    dockerfile : myDockerfile
